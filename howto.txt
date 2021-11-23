@@ -1,0 +1,267 @@
+This is implemented with python with Flask framework
+Have implemented below  diffrent services for each operation
+1. if you hit this URI(http://127.0.0.1:5000/) it will return html output with listing all ATMS
+2. http://127.0.0.1:5000//api/add_atm - POST - and we have to provide username and passwprd for basic authentication and it accepts JSON body as input
+
+    Example input: 
+    
+	{
+        "address": {
+		"street": "sarat1",
+		"housenumber": "7",
+		"postalcode": "3333 EH",
+		"city": "bobba",
+		"geoLocation": {
+			"lat": "51.812183",
+			"lng": "4.628037"
+		}
+	},
+	"distance": 0,
+	"openingHours": [{
+		"dayOfWeek": 2,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 3,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 4,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 5,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 6,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 7,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 1,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}],
+	"functionality": "Geldautomaat",
+	"type": "GELDMAAT"
+}
+ Example Output:
+    ATM added successfully.
+3. http://127.0.0.1:1234/api/delete_atm/2 - DELETE - we have to provide username and passwprd for basic authentication
+    Example Output: 
+        ATM deleted successfully
+4.  http://127.0.0.1:1234/api/update_atm - PUT - we have to provide username and passwprd for basic authentication and it accepts JSON body
+    Example Input:
+
+	{
+        "uid":2,
+        "address": {
+		"street": "ggg",
+		"housenumber": "7",
+		"postalcode": "3333 EH",
+		"city": "bobba",
+		"geoLocation": {
+			"lat": "51.812183",
+			"lng": "4.628037"
+		}
+	},
+	"distance": 0,
+	"openingHours": [{
+		"dayOfWeek": 2,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 3,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 4,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 5,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 6,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 7,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}, {
+		"dayOfWeek": 1,
+		"hours": [{
+			"hourFrom": "07:00",
+			"hourTo": "23:00"
+		}]
+	}],
+	"functionality": "Geldautomaat",
+	"type": "GELDMAAT"
+}
+    Example Output: 
+        ATM Info Updated
+
+5. http://127.0.0.1:5000/api/get_atm/1 - GET -  we have to provide username and passwprd for basic authentication
+    Example Output:
+        {
+    "address": {
+        "city": "Uithoorn",
+        "geoLocation": {
+            "lat": "52.246215",
+            "lng": "4.82709"
+        },
+        "housenumber": "84",
+        "postalcode": "1422 DN",
+        "street": "Zijdelwaardplein"
+    },
+    "distance": 0,
+    "functionality": "Geldautomaat",
+    "openingHours": [
+        {
+            "dayOfWeek": 2,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 3,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 4,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 5,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 6,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 7,
+            "hours": [
+                {
+                    "hourFrom": "08:00",
+                    "hourTo": "22:00"
+                }
+            ]
+        },
+        {
+            "dayOfWeek": 1,
+            "hours": [
+                {
+                    "hourFrom": "10:00",
+                    "hourTo": "19:00"
+                }
+            ]
+        }
+    ],
+    "type": "GELDMAAT",
+    "uid": 1
+}
+
+Note:
+
+****Included basic unit testcases for all the services****
+
+here you can find unittest results
+
+CMM-C02YW20BLVCG:mobiquity_flask_crud saratchandrabobba$ python3  test_api.py 
+test_api.py:14: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  assert res.status_code is 200
+test_api.py:24: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  assert res.status_code is 201
+test_api.py:33: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  assert res.status_code is 200
+test_api.py:42: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  assert res.status_code is 200
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.017s
+
+OK
+CMM-C02YW20BLVCG:mobiquity_flask_crud saratchandrabobba$ 
+
+****And code has been tested thrigh pylint below are results*****
+
+Here you can find 10/10 rating for code which have beed tested through pylint
+
+CMM-C02YW20BLVCG:mobiquity_flask_crud saratchandrabobba$ python3 -m pylint app.py 
+
+
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
+
+
+**** To Run and Test our application***
+
+Step1 :  Download and Extract the zip file
+Step2:   cd </project/path> ( Ex:  cd /Users/saratchandrabobba/Work/mobiquity_flask_crud)
+Step3:   Run python3 -m install pip3 (if python3 not installled in your machine pls get installled first before proceeding with this step)
+Step4:   pip3 install -r requirements.txt
+Step5:   python3 app.py (Now application running successfully you can check by open http://127.0.0.1:5000/  in any browser)
+Step6:   python3 test_api.py ( to run unit test cases)
+
+Step7:  Now we can check with postman
+
+FYR. adding few screenshots under /mobiquity_flask_crud/screenshots folder. pls check it..
+
+Thanks!!
